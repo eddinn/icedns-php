@@ -18,10 +18,10 @@ if( $ip !== '' )
     # Check if $ip.iceland.rix.is resolves to 127.1.0.1
     if( gethostbyname( implode( '.', $arr_ip ) . '.iceland.rix.is' ) == '127.1.0.1' )
         # If yes, the IP is Icelandic
-        print_r($ip) . print " er .is IP-tala!";
+        print "$ip er .is IP-tala!";
     else
         # Else, the ip is not Icelandic
-        print_r($ip) . print " er ekki .is IP-tala!";
+        print "$ip er ekki .is IP-tala!";
 }
 ?> 
 </body>
