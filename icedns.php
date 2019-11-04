@@ -9,18 +9,18 @@
 </form>
 <hr />
 <?php
-# Gerum ekki neitt nema GET-breytan ip innihaldi eitthvað
+# Don't do anything if the string is empty
 $ip = (string)filter_input(INPUT_GET, 'ip');
 if( $ip !== '' )
 {
-    # Skerum IP töluna niður eftir punktunum og snúum henni við
+    # Split and reverse the IP into an array
     $arr_ip = array_reverse( explode( '.', $ip ) );
-    # Athugum hvort iptala.iceland.rix.is skili 127.1.0.1
+    # check if $ip.iceland.rix.is resolves to 127.1.0.1
     if( gethostbyname( implode( '.', $arr_ip ) . '.iceland.rix.is' ) == '127.1.0.1' )
-        # Ef svo er, er IP-talan íslensk
+        # If yes, the IP is Icelandic
         print "$ip er .is IP-tala!";
     else
-        # Ef ekki, er IP talan ekki íslensk
+        # Else, the ip is not Icelandic
         print "$ip er ekki .is IP-tala!";
 }
 ?> 
