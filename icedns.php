@@ -9,10 +9,10 @@
 </form>
 <?php
 # Gerum ekki neitt nema GET-breytan ip innihaldi eitthvað
-if( $_GET['ip'] != '' )
+if( isset($_GET['ip']) != '' )
 {
     # Prentum út horizontal rule (línu) til að aðskilja formið frá niðurstöðum
-    echo '<hr />';
+    print "<hr />";
     # Skerum IP töluna niður eftir punktunum og snúum henni við
     $arr_ip = array_reverse( explode( '.', $_GET['ip'] ) );
     # Athugum hvort iptala.iceland.rix.is skili 127.1.0.1
