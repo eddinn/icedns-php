@@ -15,13 +15,13 @@ if( $ip !== '' )
 {
     # Split and reverse the IP into an array
     $arr_ip = array_reverse( explode( '.', $ip ) );
-    # check if $ip.iceland.rix.is resolves to 127.1.0.1
+    # Check if $ip.iceland.rix.is resolves to 127.1.0.1
     if( gethostbyname( implode( '.', $arr_ip ) . '.iceland.rix.is' ) == '127.1.0.1' )
         # If yes, the IP is Icelandic
-        print "$ip er .is IP-tala!";
+        print_r($ip) . print " er .is IP-tala!";
     else
         # Else, the ip is not Icelandic
-        print "$ip er ekki .is IP-tala!";
+        print_r($ip) . print " er ekki .is IP-tala!";
 }
 ?> 
 </body>
