@@ -10,17 +10,18 @@
 <hr />
 <?php
 # Gerum ekki neitt nema GET-breytan ip innihaldi eitthvað
-if( isset($_GET['ip']) != '' )
+if( isset($_GET['ip']) !== '' )
 {
+    $ip = filter_input(INPUT_GET, 'ip');
     # Skerum IP töluna niður eftir punktunum og snúum henni við
-    $arr_ip = array_reverse( explode( '.', $_GET['ip'] ) );
+    $arr_ip = array_reverse( explode( '.', $ip ) );
     # Athugum hvort iptala.iceland.rix.is skili 127.1.0.1
     if( gethostbyname( implode( '.', $arr_ip ) . '.iceland.rix.is' ) == '127.1.0.1' )
         # Ef svo er, er IP-talan íslensk
-        echo $_GET['ip'] . ' er .is IP-tala!';
+        print "$ip er .is IP-tala!";
     else
         # Ef ekki, er IP talan ekki íslensk
-        echo $_GET['ip'] . ' er ekki .is IP-tala!';
+        print "$ip er ekki .is IP-tala!";
 }
 ?> 
 </body>
